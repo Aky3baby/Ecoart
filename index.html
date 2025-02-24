@@ -9,26 +9,76 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-  <header>
-    <div class="logo">Your Logo</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">about Us</a></li>
-        <li><a href="#">shop</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
+<!-- navbar -->
+ <nav class="navbar">
+  <div class="=logo">
+    <img src="" alt="creative concept">
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Shop</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">art piece</a></li>
+        <li><a href="#">wooden table</a></li>
+        <li><a href="#">Recycled products</a></li>
+        <li><a href="#">other products</a></li>
       </ul>
-    </nav>
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-heart"></i>
+    </li>
+
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+
+  <div class="icons">
+    <i class="fas fa-search"></i>
+    <i class="fas fa-heart"></i>
+
+    <div class="cart-icon">
       <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge">3</span> <!-- Badge -->
     </div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="nav-buttons">
+    <a href="#" class="btn-login">Login</a>
+    <a href="#" class="btn-signup">Sign Up</a>
+  </div>
+ </nav>
+  <!-- <header>
+   
+    <div class="logo">Lantos creative concept</div>
+    
+
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Shop</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">art piece</a></li>
+        <li><a href="#">wooden table</a></li>
+        <li><a href="#">Recycled products</a></li>
+        <li><a href="#">other products</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+</nav> -->
+
+
   </header>
-  <!-- Hero Section -->
   <section id="hero">
+    <video autoplay loop muted poster="poster-image.jpg" class="hero-video">
+      <source src="videos/WhatsApp Video 2025-02-20 at 13.31.59.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content">
       <h1>Transforming Waste into Art</h1>
       <p>Sustainable Creations for a Greener Future</p>
@@ -36,25 +86,78 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about">
+  <section id="about" class="hide-behind-nav">
     <h2>About Us</h2>
-    <p>At EcoArt Innovations, we believe in the power of creativity to drive change. Based in Kweikuma, Western Region, we transform discarded materials into stunning art pieces and functional coffee tables. Our mission is to reduce landfill waste, promote sustainability, and offer eco-conscious consumers unique, high-quality products.</p>
-  </section>
+    <p>At Lantos creative concept, we believe in the power of creativity to drive change. Based in Kweikuma, Western Region, we transform discarded materials into stunning art pieces and functional coffee tables. Our mission To ignite creativity and innivationby reimagining waste as a resource,crafting unique art and tech-integrated furniture that enriches lives and spaces. our vission is to a be a global in sustainable design,empowering individuals and communities to embrace a circular economy through artistic expression and technological advancement </p>
 
-  <!-- Gallery Section -->
+
+    <!-- About section content -->
+
+  </section>
+  
+
   <section id="gallery">
-    <h2>Our Creations</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="art1.jpg" alt="Art Piece 1">
-        <p>Recycled Metal Sculpture</p>
+    <div class="masonry-gallery">
+      <div class="masonry-item">
+        <div class="woodin canva painting">
+          <h3>only wires</h3>
+          <p>made from discarded wires</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/image1.jpeg" alt="Image 1">
+       
       </div>
-      <div class="gallery-item">
-        <img src="table1.jpg" alt="Coffee Table 1">
-        <p>Upcycled Wooden Coffee Table</p>
+      <div class="masonry-item">
+        <div class="wall hangings">
+          <h3> canva</h3>
+          <p>discarded plastics</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/image2.jpeg" alt="Image 2">
+        
       </div>
-      <!-- Add more items as needed -->
+      <div class="masonry-item">
+        <div class="wall hangings">
+          <h3> canva</h3>
+          <p>discarded plastics</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/imgage3.jpeg" alt="Image 3">
+        
+      </div>
+      <div class="masonry-item">
+        <div class="wall hangings">
+          <h3> canva</h3>
+          <p>discarded plastics</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/image4.jpeg" alt="Image 4">
+        
+      </div>
+      <div class="masonry-item">
+        <div class="wall hangings">
+          <h3> canva</h3>
+          <p>discarded plastics</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/image5.jpeg" alt="Image 5">
+        
+      </div>
+      <div class="masonry-item">
+        <div class="wall hangings">
+          <h3> canva</h3>
+          <p>discarded plastics</p>
+          <p class="price">Ghc50</p>
+          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+        </div>
+        <img src="assets/image6.jpeg" alt="Image 6">
+        
+      </div>
     </div>
   </section>
 
