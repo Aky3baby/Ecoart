@@ -4,167 +4,551 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoArt Innovations</title>
+  <title>Lbeestore</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
 </head>
 <body>
-<!-- navbar -->
- <nav class="navbar">
-  <div class="=logo">
-    <img src="" alt="creative concept">
-  </div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">Shop</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">art piece</a></li>
-        <li><a href="#">wooden table</a></li>
-        <li><a href="#">Recycled products</a></li>
-        <li><a href="#">other products</a></li>
-      </ul>
-    </li>
-
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-  </ul>
-
-  <div class="icons">
-    <i class="fas fa-search"></i>
-    <i class="fas fa-heart"></i>
-
-    <div class="cart-icon">
-      <i class="fas fa-shopping-cart"></i>
-      <span class="cart-badge">3</span> <!-- Badge -->
-    </div>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="nav-buttons">
-    <a href="#" class="btn-login">Login</a>
-    <a href="#" class="btn-signup">Sign Up</a>
-  </div>
- </nav>
-  <!-- <header>
-   
-    <div class="logo">Lantos creative concept</div>
-    
-
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">Shop</a>
-      <ul class="dropdown-menu">
-        <li><a href="#">art piece</a></li>
-        <li><a href="#">wooden table</a></li>
-        <li><a href="#">Recycled products</a></li>
-        <li><a href="#">other products</a></li>
-      </ul>
-    </li>
-
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-  </ul>
-</nav> -->
-
 
   </header>
-  <section id="hero">
-    <video autoplay loop muted poster="poster-image.jpg" class="hero-video">
-      <source src="videos/WhatsApp Video 2025-02-20 at 13.31.59.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-content">
-      <h1>Transforming Waste into Art</h1>
-      <p>Sustainable Creations for a Greener Future</p>
-      <a href="#gallery" class="cta-button">Explore Our Creations</a>
+ 
+  <nav>
+    <div class="logo">Lbeestore</div>
+    <ul>
+      <li><a href="#Home">Home</a></li>
+      <a href="#about" id="about-link">About Us</a>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Shop</a>
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">women</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">kids</a></li>
+          <li><a href="#">Other Products</a></li>
+        </ul> -->
+      </li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+   
+    <div class="search-container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+        <select id="categoryFilter" class="category-dropdown">
+          <option value="all">All Categories</option>
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+          <option value="kids">Kids</option>
+          <option value="other">Other Products</option>
+        </select>
+        <button class="search-button" onclick="performSearch()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
     </div>
-  </section>
+      </form>
+      <a href="/login" class="btn-login">Login</a>
+      <a href="/signup" class="btn-signup">Sign Up</a>
+      <div class="cart-icon">
+        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        <span class="cart-badge">0</span>
+      </div>
+      <div id="cart-modal" class="hidden">
+        <h2>Cart</h2>
+        <ul id="cart-list"></ul>  <!-- Cart items appear here -->
+        <p id="cart-total"></p>   <!-- Total price -->
+        <button id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+ 
+  
+<!-- hero section -->
+<section class="hero-section">
+  <div class="carousel-container">
+    <div class="carousel-slide">
+      <img src="assets/men_5.jpg" alt="Slide 1">
+      <div class="carousel-content">
+        <h2>Promotion 1</h2>
+        <p>Get 10% off on all watches</p>
+        <button class="cta-button">Shop Now</button>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="assets/kid.jpg" alt="Slide 2">
+      <div class="carousel-content">
+        <h2>Promotion 2</h2>
+        <p>Get 20% off on all fashion items</p>
+        <button class="cta-button">Shop Now</button>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="assets/women_5.jpg" alt="Slide 3">
+      <div class="carousel-content">
+        <h2>New Arrival</h2>
+        <p>Check out our latest collection </p>
+        <button class="cta-button">Explore Now</button>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-navigation">
+    <button class="prev-button"><i class="fas fa-chevron-left"></i></button>
+    <button class="next-button"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="carousel-indicators">
+    <button class="indicator-button active"></button>
+    <button class="indicator-button"></button>
+    <button class="indicator-button"></button>
+  </div>
+</section>
 
   <section id="about" class="hide-behind-nav">
+    
     <h2>About Us</h2>
-    <p>At Lantos creative concept, we believe in the power of creativity to drive change. Based in Kweikuma, Western Region, we transform discarded materials into stunning art pieces and functional coffee tables. Our mission To ignite creativity and innivationby reimagining waste as a resource,crafting unique art and tech-integrated furniture that enriches lives and spaces. our vission is to a be a global in sustainable design,empowering individuals and communities to embrace a circular economy through artistic expression and technological advancement </p>
+    <p>Online Shopping in 
+      Foods,Clothes, electronics, accessories – whatever your need for the hour maybe, Abiramy VTA Exports, your favorite online shopping site, is sure to spoil you with a wide range of products. You don’t have to wait for the weekends to shop as you can shop online on your way back home after work. Almost all popular brands across categories sell their products online, thereby bringing you closer to your preferences. Oh, and let’s not forget about the various discounts on these products which make them an offer that is too hard to resist. So, are you all set to head online and shop? Let’s take a look at what Abiramy VTA Exports has in store for you, shall we?
+  
+     </p>
+      <img src="assets/banner_women.webp" alt="">
 
 
     <!-- About section content -->
 
   </section>
-  
-
   <section id="gallery">
     <div class="masonry-gallery">
-      <div class="masonry-item">
-        <div class="woodin canva painting">
-          <h3>only wires</h3>
-          <p>made from discarded wires</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+      <!-- Women's Category (matches dropdown) -->
+      <div class="masonry-item" data-category="women">
+        <div class="wall hangings">
+          <h3>Women's Canvas Art</h3>
+          <p>Discarded plastics</p>
+          <p class="price">Gh180</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
         </div>
-        <img src="assets/image1.jpeg" alt="Image 1">
+        <img src="assets/new_collection2.jpg" alt="Women's Product">
+      </div>
+        
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Handbag</h3>
+            <p>2in1 Fashion Women's Pu Leather Handbag Set - Black</p>
+            <p class="price">Gh340</p>
+         
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_1.jpg" alt="Women's Product">
+        </div>
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Handbag</h3>
+            <p>Vintage Top Handle Designer Luxury Top Handle Bags - Multicolor</p>
+            <p class="price">Gh240</p>
+           
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_2.jpg" alt="Women's Product">
+        </div>
+  
+
+
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Dress</h3>
+            <p>Ladies Long Dress Women Casual Half Sleeve Grown Evening Party Dress</p>
+            <p class="price">Gh240</p>
+            
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_3.jpg" alt="Women's Product">
+        </div>
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Dress</h3>
+            <p>Ladies Long Dress Women Casual Half Sleeve Grown Evening Party Dress</p>
+            <p class="price">Gh240</p>
+         
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_4.jpg" alt="Women's Product">
+        </div>
+        
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's lingerie</h3>
+            <p>5 Pieces Of Ladies cotton Lace Panties Set- Multicolour</p>
+            <p class="price">GH₵ 70.00</p>
+           
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_6.jpg" alt="Women's Product">
+        </div>
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's lingerie</h3>
+            <p>Women's Sexy Plus Size Lingerie Lace Breathable Nightwear - Black</p>
+            <p class="price">GH₵ 63.00</p>
+           
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_5.jpg" alt="Women's Product">
+        </div>
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's wigcup</h3>
+            <p>Brazilian Deep Wave T-Part Frontal Wig for Women, 180 Density, Transparent Mesh, Pre-Plucked Jerry Curly Bob, Remy Hair - Black</p>
+            <p class="price">GH₵ 500.00</p>
+        
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_7.jpg" alt="Women's Product">
+        </div>
+
+
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Heel</h3>
+            <p>Eternal Love Ladies mid heel</p>
+            <p class="price">GH₵ 200.00</p>
+          
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_8.jpg" alt="Women's Product">
+        </div>
+  
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Heel</h3>
+            <p>Eternal Love Ladies mid heel</p>
+            <p class="price">GH₵ 200.00</p>
+           
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_9.jpg" alt="Women's Product">
+        </div>
+  
+  
+        <div class="masonry-item" data-category="women">
+          <div class="wall hangings">
+            <h3>Women's Heel</h3>
+            <p>Eternal Love Ladies mid heel</p>
+            <p class="price">GH₵ 200.00</p>
+           
+            <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+          <img src="assets/women_10.jpg" alt="Women's Product">
+        </div>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+      <!-- Men's Category (matches dropdown) -->
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's shoe</h3>
+          <p>Fashion Men's Business Shoes Men's Leather Shoes Casual Office Shoes</p>
+          <p class="price">Ghc130</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/mens_2.jpg" alt="Men's Product">
+      </div>
+  
+
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's shoe</h3>
+          <p>Fashion Men's Business Shoes Men's Leather Shoes Casual Office Shoes</p>
+          <p class="price">Ghc200</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/mens_1.jpg" alt="Men's Product">
+      </div>
+      
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's Watch</h3>
+          <p>Fngeen Top Luxury Mechanical Watch, Stainless Steel Men's Waterproof Watch
+            Brand: Fngeen | Similar products from Fngeen</p>
+          <p class="price">Ghc200</p>
+        
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/men_5.jpg" alt="Men's Product">
+      </div>
+  
+  
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's causual wear</h3>
+          <p>Mens Loose Large Size Short Sleeve T-shirt 2 Pcs - Black/White</p>
+          <p class="price">Ghc200</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/men_7.jpg" alt="Men's Product">
+      </div>
+  
+
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's causual wear</h3>
+          <p>Mens Loose Large Size Short Sleeve T-shirt 2 Pcs - Black/White</p>
+          <p class="price">Ghc200</p>
+        
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/mens.jpg" alt="Men's Product">
+      </div>
+  
+
+
+
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's causual wear</h3>
+          <p>Men's Stretch Skinny Jeans New Spring Korean Fashion Casual Cotton Denim Slim Fit Pants Male Trousers Brand</p>
+          <p class="price">Ghc200</p>
+          
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/men_12.jpg" alt="Men's Product">
+      </div>
+  
+
+
+      <div class="masonry-item" data-category="men">
+        <div class="wall hangings">
+          <h3>Men's Sneakers</h3>
+          <p>Fashion plate shoes men's casual shoes sneakers-white</p>
+          <p class="price">Ghc200</p>
+     
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/menshoe.jpg" alt="Men's Product">
+      </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Kids Category (matches dropdown) -->
+      <div class="masonry-item" data-category="kids">
+        <div class="wall hangings">
+          <h3>Kids party Dress</h3> 
+          <p>fashion</p>
+          <p class="price">Ghc100</p>
+          
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/kid 6.jpg" alt="Kids Product">
+      </div>
+
+      <div class="masonry-item" data-category="kids">
+        <div class="wall hangings">
+          <h3>Kids Outfit</h3> 
+          <p>Everyday dress</p>
+          <p class="price">Ghc100</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/kid.jpg" alt="Kids Product">
+      </div>
+      <div class="masonry-item" data-category="kids">
+        <div class="wall hangings">
+          <h3>Kids Outfit</h3> 
+          <p>fashion wear</p>
+          <p class="price">Ghc100</p>
+        
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/kid4.jpg" alt="Kids Product">
+      </div>
+      <div class="masonry-item" data-category="kids">
+        <div class="wall hangings">
+          <h3>Kids wear</h3> 
+          <p>kids easy wear</p>
+          <p class="price">Ghc100</p>
        
-      </div>
-      <div class="masonry-item">
-        <div class="wall hangings">
-          <h3> canva</h3>
-          <p>discarded plastics</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
         </div>
-        <img src="assets/image2.jpeg" alt="Image 2">
-        
+        <img src="assets/kids_2.jpg" alt="Kids Product">
       </div>
-      <div class="masonry-item">
+      <div class="masonry-item" data-category="kids">
         <div class="wall hangings">
-          <h3> canva</h3>
-          <p>discarded plastics</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+          <h3>Kids playing accessories</h3> 
+          <p>Shop  playing accessories
+          </p>
+          <p class="price">Ghc100</p>
+         \
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
         </div>
-        <img src="assets/imgage3.jpeg" alt="Image 3">
-        
+        <img src="assets/Kids-Travel-car.jpg" alt="Kids Product">
       </div>
-      <div class="masonry-item">
+
+      <div class="masonry-item" data-category="kids">
         <div class="wall hangings">
-          <h3> canva</h3>
-          <p>discarded plastics</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+          <h3>Kids accessories</h3> 
+          <p>Sunglasses For Kids Retro Round Frame Sun Glasses Pink</p>
+          <p class="price">GH₵ 60.24
+          </p>
+          
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
         </div>
-        <img src="assets/image4.jpeg" alt="Image 4">
-        
+        <img src="assets/kids_3.jpg" alt="Kids Product">
       </div>
-      <div class="masonry-item">
+      
+      <div class="masonry-item" data-category="kids">
         <div class="wall hangings">
-          <h3> canva</h3>
-          <p>discarded plastics</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
-        </div>
-        <img src="assets/image5.jpeg" alt="Image 5">
+          <h3>Kids accessories</h3> 
+          <p>Kids' hats Summer breathable mesh cap Girls' solid sequined baseball cap pink</p>
+          <p class="price">GH₵ 72.24
+          </p>
         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/kids_7.jpg" alt="Kids Product">
       </div>
-      <div class="masonry-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+      <!-- Other Products (matches dropdown) -->
+      <div class="masonry-item" data-category="other">
         <div class="wall hangings">
-          <h3> canva</h3>
-          <p>discarded plastics</p>
-          <p class="price">Ghc50</p>
-          <button class="buy-button" onclick="window.location.href='https://your-product-link.com'">Buy Now</button>
+          <h3>Kids dress</h3>
+          <p>party wear</p>
+          <p class="price">Ghc150</p>
+         
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
         </div>
-        <img src="assets/image6.jpeg" alt="Image 6">
-        
+        <img src="assets/p1_product2.jpg" alt="Other Product">
+      </div>
+  
+      <!-- Add more products with consistent categories -->
+      <div class="masonry-item" data-category="women">
+        <div class="wall hangings">
+          <h3>Women's Handbag</h3>
+          <p>Upcycled fabric</p>
+          <p class="price">Ghc120</p>
+          
+          <button class="add-to-cart" data-id="w2" data-name="Women's Handbag" data-price="340" data-image="assets/women_1.jpg">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+        </div>
+        <img src="assets/p1_product7.jpg" alt="Women's Handbag">
       </div>
     </div>
+  </section>
   </section>
 
   <!-- Impact Section -->
   <section id="impact">
     <h2>Our Impact</h2>
-    <p>By repurposing discarded materials, we’ve diverted over 500 kg of waste from landfills and created 50 unique pieces of art and furniture. Join us in building a more sustainable future.</p>
+    <p>we give dropshippers the opportunity to explore more.</p>
   </section>
 
   <!-- Call-to-Action Section -->
@@ -187,11 +571,51 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2023 EcoArt Innovations. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1>Lbeestore</h1>
+        <p>online Store</p>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#gallery"><i class="fas fa-chevron-right"></i> gallery</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+         
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/lindabrokye" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.facebook.com/share/1C9zb2JGCd/" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/+233243126193" target="_blank" class="social-icon">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <div class="newsletter">
+          <h4>Subscribe to our newsletter</h4>
+          <form>
+            <input type="email" placeholder="Your email address">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <hr>
+      <p>&copy; 2025 Lbeestore. All Rights Reserved.</p>
     </div>
   </footer>
   <script src="script.js"></script>
